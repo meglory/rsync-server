@@ -5,6 +5,7 @@ USERNAME=${USERNAME:-user}
 PASSWORD=${PASSWORD:-pass}
 ALLOW=${ALLOW:-192.168.8.0/24 192.168.24.0/24 172.16.0.0/12 127.0.0.1/32}
 VOLUME=${VOLUME:-/data}
+POST=${PORT:-873}
 
 if [ "$1" = 'rsync_server' ]; then
 
@@ -26,7 +27,7 @@ if [ "$1" = 'rsync_server' ]; then
     log file = /dev/stdout
     timeout = 300
     max connections = 10
-    port = 873
+    port = ${PORT}
 
     [volume]
         uid = root
